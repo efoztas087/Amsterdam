@@ -1,19 +1,13 @@
 import { prisma } from "@/lib/prisma";
 
 export default async function AdminPage() {
-  const [
-  projects,
-  vacancies,
-  people,
-  publications,
-  expertises,
-] = await Promise.all([
-  prisma.project.count(),
-  prisma.vacancy.count(),
-  prisma.person.count(),
-  prisma.publication.count(),
-  prisma.expertise.count(),
-]);
+  const [projects, vacancies, people, publications, expertises] = await Promise.all([
+    prisma.project.count(),
+    prisma.vacancy.count(),
+    prisma.person.count(),
+    prisma.publication.count(),
+    prisma.expertise.count(),
+  ]);
 
   return (
     <div className="admin-layout">
@@ -40,22 +34,22 @@ export default async function AdminPage() {
 
         <div className="admin-stats">
           <div className="admin-stat">
-            <span className="admin-stat-number">{projecten}</span>
+            <span className="admin-stat-number">{projects}</span>
             <span className="admin-stat-label">Projecten</span>
           </div>
 
           <div className="admin-stat">
-            <span className="admin-stat-number">{vacatures}</span>
+            <span className="admin-stat-number">{vacancies}</span>
             <span className="admin-stat-label">Vacatures</span>
           </div>
 
           <div className="admin-stat">
-            <span className="admin-stat-number">{mensen}</span>
+            <span className="admin-stat-number">{people}</span>
             <span className="admin-stat-label">Mensen</span>
           </div>
 
           <div className="admin-stat">
-            <span className="admin-stat-number">{publicaties}</span>
+            <span className="admin-stat-number">{publications}</span>
             <span className="admin-stat-label">Publicaties</span>
           </div>
 
