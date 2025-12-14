@@ -2,18 +2,18 @@ import { prisma } from "@/lib/prisma";
 
 export default async function AdminPage() {
   const [
-    projecten,
-    vacatures,
-    mensen,
-    publicaties,
-    expertises,
-  ] = await Promise.all([
-    prisma.Project.count(),
-    prisma.Vacancy.count(),
-    prisma.Person.count(),
-    prisma.Publication.count(),
-    prisma.Expertise.count(),
-  ]);
+  projects,
+  vacancies,
+  people,
+  publications,
+  expertises,
+] = await Promise.all([
+  prisma.project.count(),
+  prisma.vacancy.count(),
+  prisma.person.count(),
+  prisma.publication.count(),
+  prisma.expertise.count(),
+]);
 
   return (
     <div className="admin-layout">
