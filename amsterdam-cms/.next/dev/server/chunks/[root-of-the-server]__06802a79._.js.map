@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 52, "column": 0}, "map": {"version":3,"sources":["file:///Users/efeoztas/Desktop/Amsterdam/amsterdam-cms/src/lib/prisma.ts"],"sourcesContent":["import { PrismaClient } from \"@prisma/client\";\n\nconst globalForPrisma = globalThis as unknown as {\n  prisma: PrismaClient | undefined;\n};\n\nexport const prisma =\n  globalForPrisma.prisma ??\n  new PrismaClient({\n    log: [\"query\"],\n  });\n\nif (process.env.NODE_ENV !== \"production\") {\n  globalForPrisma.prisma = prisma;\n}"],"names":[],"mappings":";;;;AAAA;;AAEA,MAAM,kBAAkB;AAIjB,MAAM,SACX,gBAAgB,MAAM,IACtB,IAAI,6IAAY,CAAC;IACf,KAAK;QAAC;KAAQ;AAChB;AAEF,wCAA2C;IACzC,gBAAgB,MAAM,GAAG;AAC3B"}},
+    {"offset": {"line": 71, "column": 0}, "map": {"version":3,"sources":["file:///Users/efeoztas/Desktop/Amsterdam/amsterdam-cms/src/app/api/test/route.ts"],"sourcesContent":["import { NextResponse } from \"next/server\";\nimport { prisma } from \"@/lib/prisma\";\n\nexport async function GET() {\n  const vacancies = await prisma.vacancy.findMany();\n  return NextResponse.json(vacancies);\n}"],"names":[],"mappings":";;;;AAAA;AACA;;;AAEO,eAAe;IACpB,MAAM,YAAY,MAAM,gIAAM,CAAC,OAAO,CAAC,QAAQ;IAC/C,OAAO,gJAAY,CAAC,IAAI,CAAC;AAC3B"}}]
+}

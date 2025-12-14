@@ -1,0 +1,275 @@
+:root {
+  --amsterdam-red: #e60000;
+  --amsterdam-black: #000000;
+  --amsterdam-white: #ffffff;
+  --amsterdam-gray: #f5f5f5;
+  --amsterdam-border: #dddddd;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  color: var(--amsterdam-black);
+  background-color: var(--amsterdam-gray);
+}
+
+h1 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+a {
+  color: var(--amsterdam-red);
+  text-decoration: none;
+}
+
+.home-content {
+  padding: 6rem 2rem;
+  background: white;
+}
+
+button {
+  cursor: pointer;
+}
+
+.public-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  background: transparent;
+}
+
+.public-nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+}
+
+.public-logo {
+  height: 48px;
+}
+
+.public-menu {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+}
+
+.public-menu a {
+  color: white;
+  font-weight: 600;
+}
+
+/* ===== Public content layout ===== */
+
+.page-section {
+  background: white;
+  padding: 6rem 0;
+}
+
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 4rem;   /* 👈 hier duwen we naar rechts */
+  padding-right: 2rem;
+}
+
+.page-container h1,
+.page-container h2 {
+  text-align: left;
+}
+
+.page-container p {
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+/* ========== Admin login ========== */
+
+.admin-login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-login-box {
+  border-radius: 15px;
+  background: var(--amsterdam-white);
+  padding: 3rem;
+  width: 100%;
+  max-width: 420px;
+  border: 1px solid var(--amsterdam-border);
+}
+
+.admin-login-box h1 {
+  margin-top: 0;
+  border-bottom: 3px solid var(--amsterdam-red);
+  padding-bottom: 0.5rem;
+}
+
+.admin-login-field {
+  margin-bottom: 1.25rem;
+}
+
+.admin-login-field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.admin-login-field input {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid var(--amsterdam-border);
+  font-size: 1rem;
+}
+
+.admin-login-field input:focus {
+  outline: none;
+  border-color: var(--amsterdam-red);
+}
+
+.admin-login-button {
+  width: 100%;
+  background: var(--amsterdam-red);
+  color: var(--amsterdam-white);
+  border: none;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.admin-login-error {
+  margin-top: 1rem;
+  color: var(--amsterdam-red);
+  font-size: 0.9rem;
+}
+
+.admin-login-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.admin-login-logo img {
+  height: 60px;
+  width: auto;
+}
+
+.admin-login-button:hover,
+.admin-login-button:focus {
+  background-color: #b80000; /* iets donkerder rood */
+}
+
+/* ========== Admin dashboard ========== */
+
+.admin-layout {
+  min-height: 100vh;
+  background-color: var(--amsterdam-gray);
+}
+
+/* Header */
+.admin-header {
+  background: var(--amsterdam-white);
+  border-bottom: 3px solid var(--amsterdam-red);
+}
+
+.admin-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.admin-logo {
+  height: 48px;
+  width: auto;
+}
+
+/* Navigation */
+.admin-nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.admin-nav a {
+  font-weight: 600;
+  color: var(--amsterdam-black);
+  padding-bottom: 0.25rem;
+  border-bottom: 2px solid transparent;
+}
+
+.admin-nav a:hover {
+  border-bottom-color: var(--amsterdam-red);
+}
+
+/* Content */
+.admin-content {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--amsterdam-white);
+  border: 1px solid var(--amsterdam-border);
+}
+
+.admin-content h1 {
+  margin-top: 0;
+  border-bottom: 3px solid var(--amsterdam-red);
+  padding-bottom: 0.5rem;
+}
+
+/* ===== HERO VIDEO FULLSCREEN ===== */
+
+.hero-video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-video-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Tekst boven video */
+.hero-overlay {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero-overlay h1 {
+  font-size: 3rem;
+  max-width: 900px;
+}
+.hero-video::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 0;
+}

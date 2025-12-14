@@ -1,0 +1,70 @@
+import { prisma } from "@/lib/prisma";
+
+export default async function AdminPage() {
+  const [
+    projecten,
+    vacatures,
+    mensen,
+    publicaties,
+    expertises,
+  ] = await Promise.all([
+    prisma.Project.count(),
+    prisma.Vacancy.count(),
+    prisma.Person.count(),
+    prisma.Publication.count(),
+    prisma.Expertise.count(),
+  ]);
+
+  return (
+    <div className="admin-layout">
+      <header className="admin-header">
+        <div className="admin-header-inner">
+          <img
+            src="/gemeenteamsterdam.png"
+            alt="Gemeente Amsterdam"
+            className="admin-logo"
+          />
+          <nav className="admin-nav">
+            <a href="/admin">Dashboard</a>
+            <a href="/admin/mensen">Mensen</a>
+            <a href="/admin/vacatures">Vacatures</a>
+            <a href="/admin/projecten">Projecten</a>
+            <a href="/admin/publicaties">Publicaties</a>
+            <a href="/admin/expertise">Expertise</a>
+          </nav>
+        </div>
+      </header>
+
+      <main className="admin-content">
+        <h1>Dashboard</h1>
+
+        <div className="admin-stats">
+          <div className="admin-stat">
+            <span className="admin-stat-number">{projecten}</span>
+            <span className="admin-stat-label">Projecten</span>
+          </div>
+
+          <div className="admin-stat">
+            <span className="admin-stat-number">{vacatures}</span>
+            <span className="admin-stat-label">Vacatures</span>
+          </div>
+
+          <div className="admin-stat">
+            <span className="admin-stat-number">{mensen}</span>
+            <span className="admin-stat-label">Mensen</span>
+          </div>
+
+          <div className="admin-stat">
+            <span className="admin-stat-number">{publicaties}</span>
+            <span className="admin-stat-label">Publicaties</span>
+          </div>
+
+          <div className="admin-stat">
+            <span className="admin-stat-number">{expertises}</span>
+            <span className="admin-stat-label">Expertises</span>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+}

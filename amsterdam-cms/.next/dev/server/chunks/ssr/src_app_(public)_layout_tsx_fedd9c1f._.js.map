@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///Users/efeoztas/Desktop/Amsterdam/amsterdam-cms/src/app/%28public%29/layout.tsx"],"sourcesContent":["import PublicNav from \"@/components/PublicNav\";\n\nexport default function PublicLayout({\n  children,\n}: {\n  children: React.ReactNode;\n}) {\n  return (\n    <>\n      <main style={{ padding: 24 }}>{children}</main>\n    </>\n  );\n}"],"names":[],"mappings":";;;;;;AAEe,SAAS,aAAa,EACnC,QAAQ,EAGT;IACC,qBACE;kBACE,cAAA,8OAAC;YAAK,OAAO;gBAAE,SAAS;YAAG;sBAAI;;;;;;;AAGrC"}}]
+}
