@@ -1,6 +1,21 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 export default function PublicNav() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > window.innerHeight - 80);
+    };
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <nav className="public-nav">
+    <nav className={`public-nav ${scrolled ? "scrolled" : ""}`}>
       <div className="public-nav-inner">
         <img
           src="/gemeenteamsterdam.png"

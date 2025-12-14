@@ -33,3 +33,128 @@
 [00:32:08.913] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
 [00:34:38.072] Server  LOG      ✓ Compiled in 4ms
 [00:36:09.023] Server  LOG      ✓ Compiled in 3ms
+[01:31:43.695] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:50:50.316] Server  LOG      ✓ Compiled in 4ms
+[01:51:25.249] Server  LOG      ✓ Compiled in 2ms
+[01:52:44.198] Server  ERROR    ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... onClick={function onClick} children=...>
+                                 ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+[01:52:44.325] Browser ERROR   uncaughtError: Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... onClick={function onClick} children=...>
+                                 ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+[01:53:36.386] Server  LOG      ✓ Compiled in 3ms
+[01:53:36.620] Server  ERROR    ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... onClick={function onClick} children=...>
+                                 ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+[01:53:36.723] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:53:36.723] Browser ERROR   uncaughtError: Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... onClick={function onClick} children=...>
+                                 ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+[01:54:22.694] Server  ERROR    ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... onClick={function onClick} children=...>
+                                 ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+[01:54:22.796] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:54:22.796] Browser ERROR   uncaughtError: Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... onClick={function onClick} children=...>
+                                 ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+[01:56:17.165] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:56:19.224] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:56:22.332] Server  ERROR    ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... onClick={function onClick} children=...>
+                                 ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+[01:56:22.457] Server  ERROR    ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... onClick={function onClick} children=...>
+                                 ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+[01:56:22.573] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:56:22.573] Browser ERROR   uncaughtError: Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... onClick={function onClick} children=...>
+                                 ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+[01:57:29.674] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:57:36.550] Server  LOG      ✓ Compiled in 5ms
+[01:57:59.698] Server  LOG      ✓ Compiled in 3ms
+[01:58:33.588] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:01:36.768] Server  LOG      ✓ Compiled in 9ms
+[02:02:00.579] Server  LOG      ✓ Compiled in 5ms
+[02:02:48.826] Server  LOG      ✓ Compiled in 13ms
+[02:03:20.014] Server  LOG      ✓ Compiled in 3ms
+[02:04:24.953] Server  LOG      ✓ Compiled in 2ms
+[02:04:27.171] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:04:28.374] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:04:28.781] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:04:28.927] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:04:29.123] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:04:29.309] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:04:29.499] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:04:29.665] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:04:29.862] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:04:30.192] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:04:30.341] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:04:30.512] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:05:13.363] Server  LOG      ✓ Compiled in 4ms
+[02:05:15.469] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:05:16.072] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:05:16.386] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:05:16.820] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:05:16.953] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:06:36.152] Server  LOG      ✓ Compiled in 2ms
+[02:07:20.185] Server  LOG      ✓ Compiled in 5ms
+[02:07:24.039] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:07:27.768] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:07:49.825] Server  LOG      ✓ Compiled in 6ms
+[02:16:54.244] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:23:49.072] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:24:36.323] Server  LOG      ✓ Compiled in 3ms
+[02:27:02.251] Server  LOG      ✓ Compiled in 4ms
+[02:27:13.059] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:27:25.695] Server  LOG      ✓ Compiled in 3ms
+[02:27:30.378] Server  LOG      ✓ Compiled in 6ms
+[02:29:01.189] Server  LOG      ✓ Compiled in 4ms
+[02:29:04.691] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:29:45.745] Server  LOG      ✓ Compiled in 6ms
+[02:35:54.894] Server  LOG      ✓ Compiled in 4ms
+[02:36:03.689] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:41:05.533] Server  LOG      ✓ Compiled in 2ms
+[02:41:39.392] Server  LOG      ✓ Compiled in 2ms
+[02:42:02.595] Server  LOG      ✓ Compiled in 6ms
+[02:42:08.889] Server  LOG      ✓ Compiled in 17ms
+[02:43:05.363] Server  LOG      ✓ Compiled in 3ms
+[02:43:08.761] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:43:22.134] Server  LOG      ✓ Compiled in 3ms
+[02:44:33.501] Server  LOG      ✓ Compiled in 5ms
+[02:45:23.604] Server  LOG      ✓ Compiled in 2ms
+[02:45:31.794] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:48:40.423] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:48:40.981] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:48:41.113] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:48:45.555] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:51:00.193] Server  LOG      ✓ Compiled in 3ms
+[02:54:28.626] Server  LOG      ✓ Compiled in 6ms
+[03:06:47.134] Server  LOG      ✓ Compiled in 16ms
+[03:07:50.396] Server  LOG      ✓ Compiled in 4ms
+[03:08:55.222] Server  LOG      ✓ Compiled in 4ms
+[03:09:05.107] Server  LOG      ✓ Compiled in 3ms
+[03:09:09.904] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:10:05.426] Server  LOG      ✓ Compiled in 2ms
+[03:11:12.555] Server  LOG      ✓ Compiled in 22ms
+[03:11:27.590] Server  LOG      ✓ Compiled in 4ms
+[03:11:40.856] Server  LOG      ✓ Compiled in 3ms
+[03:12:10.008] Server  LOG      ✓ Compiled in 3ms
+[03:12:37.657] Server  LOG      ✓ Compiled in 4ms
+[03:13:53.914] Server  LOG      ✓ Compiled in 4ms
+[03:15:04.695] Server  LOG      ✓ Compiled in 3ms
+[03:19:07.073] Server  LOG      ✓ Compiled in 13ms
+[03:19:12.313] Server  LOG      ✓ Compiled in 4ms
+[03:19:19.332] Server  LOG      ✓ Compiled in 14ms
+[03:19:33.000] Server  LOG      ✓ Compiled in 6ms
+[03:19:48.273] Server  LOG      ✓ Compiled in 3ms
+[03:19:57.515] Server  LOG      ✓ Compiled in 5ms
+[03:23:22.362] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
