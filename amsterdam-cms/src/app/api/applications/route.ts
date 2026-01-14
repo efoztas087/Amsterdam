@@ -2,8 +2,6 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { createSupabaseServer } from "@/lib/supabase/server";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(req: Request) {
   try {
     const formData = await req.formData();
@@ -15,12 +13,24 @@ export async function POST(req: Request) {
     const cvFile = formData.get("cv") as File | null;
 
     if (!name || !email || !message) {
-      return NextResponse.json({ error: "Ontbrekende velden" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Ontbrekende velden" },
+        { status: 400 }
+      );
+    }
+
+    if (!process.env.RESEND_API_KEY) {
+      console.error("RESEND_API_KEY ontbreekt");
+      return NextResponse.json(
+        { error: "Mailservice niet geconfigureerd" },
+        { status: 500 }
+      );
     }
 
     const supabase = await createSupabaseServer();
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
-    // 🔹 1. Opslaan in database
+    // 1️⃣ Opslaan in database
     const { error: insertError } = await supabase
       .from("applications")
       .insert({
@@ -32,22 +42,24 @@ export async function POST(req: Request) {
 
     if (insertError) {
       console.error(insertError);
-      return NextResponse.json({ error: "Database fout" }, { status: 500 });
+      return NextResponse.json(
+        { error: "Database fout" },
+        { status: 500 }
+      );
     }
 
-    // 🔹 2. CV omzetten naar buffer (voor mail)
-    let attachments: any[] = [];
+    // 2️⃣ CV attachment
+    const attachments: any[] = [];
 
     if (cvFile) {
       const buffer = Buffer.from(await cvFile.arrayBuffer());
-
       attachments.push({
         filename: cvFile.name,
         content: buffer,
       });
     }
 
-    // 🔹 3. Mail versturen
+    // 3️⃣ Mail versturen
     await resend.emails.send({
       from: "Sollicitaties <onboarding@resend.dev>",
       to: ["37388@ma-web.nl"],
@@ -56,7 +68,7 @@ export async function POST(req: Request) {
         <h2>Nieuwe sollicitatie</h2>
         <p><strong>Naam:</strong> ${name}</p>
         <p><strong>E-mail:</strong> ${email}</p>
-        <p><strong>Vacature ID:</strong> ${vacancyId ?? "Open sollicitatie"}</p>
+        <p><strong>Vacature:</strong> ${vacancyId ?? "Open sollicitatie"}</p>
         <p><strong>Motivatie:</strong></p>
         <p>${message.replace(/\n/g, "<br/>")}</p>
       `,
@@ -67,6 +79,9 @@ export async function POST(req: Request) {
 
   } catch (err) {
     console.error(err);
-    return NextResponse.json({ error: "Server error" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Server error" },
+      { status: 500 }
+    );
   }
 }
