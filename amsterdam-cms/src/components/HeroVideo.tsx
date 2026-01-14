@@ -14,8 +14,7 @@ export default function HeroVideo() {
           <div className="hero-scroll-indicator">
             <a href="#main-content" className="hero-scroll-link">
             <span className="hero-scroll-inner">
-            <span className="arrow">⌄</span>
-            <span className="scroll-text">Scroll om verder te gaan</span>
+
             </span>
             </a>
         </div>

@@ -1,4 +1,7 @@
+import "../globals.css";
+
 import PublicNav from "@/components/PublicNav";
+import Footer from "@/components/Footer";
 
 export default function PublicLayout({
   children,
@@ -6,8 +9,10 @@ export default function PublicLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
-      <main style={{ padding: 24 }}>{children}</main>
-    </>
+    <div className="public-root">
+      <PublicNav />
+      {children}
+      <Footer />
+    </div>
   );
 }

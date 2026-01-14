@@ -1,0 +1,364 @@
+.page-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.expertise-thumb {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: black;
+  text-align: left;
+  margin-bottom: 10px;
+  margin-left: 40px;
+}
+
+.loading-text {
+  font-size: 1rem;
+  color: black;
+  margin-top: 10px;
+}
+
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 320px);
+  justify-content: start;
+  gap: 20px;
+  padding-left: 0px;
+  margin-left: 0; /* meer naar links */
+}
+
+.expertise-card {
+  position: relative;
+  background: #e60000; /* Amsterdam rood */
+  color: white;
+  border-radius: 12px;
+  padding: 24px;
+  min-height: 320px;
+  max-width: 320px;
+  overflow: hidden;
+  cursor: default;
+}
+
+.expertise-card:hover {
+  transform: scale(1.03);
+}
+
+.expertise-thumb {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.expertise-card-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+}
+
+.expertise-title {
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.expertise-status {
+  background: black;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.expertise-placeholder {
+  width: 100%;
+  height: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  background: #f2f2f2;
+  color: #555;
+}
+
+
+.expertise-detail-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: left;
+}
+
+.expertise-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.expertise-detail-title {
+  color: black;
+  font-size: 42px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.expertise-detail-badge {
+  background: black;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.expertise-detail-image {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.expertise-detail-content h2 {
+  font-size: 28px;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.expertise-detail-content p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #222;
+}
+
+.expertise-back-btn {
+  margin-top: 30px;
+  background: black;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.expertise-hero {
+  width: 100vw;          
+  margin-left: calc(-50vw + 49.6%); 
+  margin-top: -80px;
+  margin-bottom: 40px;      
+  position: relative;
+}
+
+.expertise-hero-image {
+  width: 100%;
+  height: 450px;           
+  object-fit: cover;      
+  display: block;
+  filter: brightness(0.6); 
+}
+
+
+/* GRID */
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 320px);
+  justify-content: start;
+  gap: 32px;
+  margin-top: 48px;
+  margin-left: 40px;
+}
+
+/* CARD */
+.expertise-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow:
+  0 0 0 1px rgba(230, 0, 0, 0.2),
+  0 8px 24px rgba(230, 0, 0, 0.35),
+  0 0 32px rgba(230, 0, 0, 0.25);
+  min-height: 320px;
+  max-width: 320px;
+}
+
+.expertise-card:hover {
+  box-shadow:
+    0 0 0 2px rgba(230, 0, 0, 0.35),
+    0 12px 36px rgba(230, 0, 0, 0.45),
+    0 0 48px rgba(230, 0, 0, 0.4);
+}
+
+/* RODE CIRKEL */
+.expertise-icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* TITEL */
+.expertise-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #e9e9e9;
+}
+
+/* BESCHRIJVING */
+.expertise-description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.expertise-hero-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* verticaal centreren */
+  align-items: center;       /* horizontaal centreren */
+  text-align: center;
+  color: #fff;
+  padding: 0 20px;
+}
+
+.expertise-hero-title {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.expertise-hero-text {
+  max-width: 520px;
+  font-size: 16px;
+  line-height: 1.5;
+  opacity: 0.95;
+}
+
+/* Zorg dat content onder hero netjes start */
+.expertise-section .page-container {
+  padding-top: 60px;
+}
+
+/* VOORKANT */
+.expertise-front {
+  position: absolute;
+  inset: 0;
+  background: #e60000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s ease;
+  z-index: 2;
+}
+
+/* ACHTERKANT */
+.expertise-back {
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  color: #000;
+  padding: 24px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform 0.4s ease;
+  z-index: 1;
+}
+
+/* HOVER EFFECT */
+.expertise-card:hover .expertise-front {
+  transform: translateX(-100%);
+}
+
+.expertise-card:hover .expertise-back {
+  transform: translateX(0);
+}
+
+
+/* TITEL */
+.expertise-title {
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* BESCHRIJVING */
+.expertise-description {
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.expertise-back p {
+  margin: 0;
+}
+
+/* =========================
+   EXPERTISE CTA
+========================= */
+
+.expertise-cta {
+  margin-top: 80px;
+  padding: 48px 56px;
+  background-color: #f5f5f5; /* rustige lichtgrijze achtergrond */
+  border-left: 6px solid #e60000; /* Amsterdam-rood accent */
+  max-width: 900px;
+  margin-left: 35px;
+}
+
+.expertise-cta-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #000;
+}
+
+.expertise-cta-text {
+  font-size: 17px;
+  line-height: 1.6;
+  color: #333;
+  max-width: 720px;
+  margin-bottom: 28px;
+}
+
+.expertise-cta-button {
+  display: inline-block;
+  background-color: #e60000;
+  color: #fff;
+  font-weight: 600;
+  padding: 14px 28px;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.expertise-cta-button:hover {
+  background-color: #c40000;
+  transform: translateY(-2px);
+}

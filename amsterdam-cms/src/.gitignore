@@ -40,6 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# prisma (sqlite databases – never commit)
+# prisma (sqlite databases – must NEVER be committed)
 prisma/**/dev.db
 prisma/**/dev.db-journal
