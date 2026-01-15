@@ -1,12 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import { createSupabaseBrowser } from "@/lib/supabase/browser";
 import "../admin.css";
 
 export default function ExpertiseAdminPage() {
   const supabase = createSupabaseBrowser();
-  const router = useRouter();
 
   const [expertise, setExpertise] = useState<any[]>([]);
   const [newExpertise, setNewExpertise] = useState({
