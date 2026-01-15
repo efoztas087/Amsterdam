@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { createSupabaseBrowser } from "@/lib/supabase/browser";
 import "../admin.css";
 
+export const revalidate = 0;
 export default function ProjectsAdminPage() {
   const supabase = createSupabaseBrowser();
   const router = useRouter();

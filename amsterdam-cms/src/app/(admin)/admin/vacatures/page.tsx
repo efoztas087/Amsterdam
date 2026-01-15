@@ -5,10 +5,11 @@ import { useRouter } from "next/navigation";
 import { createSupabaseBrowser } from "@/lib/supabase/browser";
 import "../admin.css";
 
+
+export const revalidate = 0;
 export default function VacanciesAdminPage() {
   const supabase = createSupabaseBrowser();
   const router = useRouter();
-
   const [vacancies, setVacancies] = useState<any[]>([]);
   const [editing, setEditing] = useState<any | null>(null);
 

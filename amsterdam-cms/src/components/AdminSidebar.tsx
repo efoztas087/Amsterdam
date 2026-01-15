@@ -1,9 +1,17 @@
 "use client";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { createSupabaseBrowser } from "@/lib/supabase/browser";
 
 export default function AdminSidebar() {
   const path = usePathname();
+  const supabase = createSupabaseBrowser();
+
+  async function handleLogout() {
+    await supabase.auth.signOut();
+    window.location.href = "/admin/login";
+  }
 
   const links = [
     { name: "Dashboard", href: "/admin" },
@@ -17,7 +25,8 @@ export default function AdminSidebar() {
 
   return (
     <aside className="admin-sidebar">
-      <nav>
+      {/* NAVIGATIE */}
+      <nav className="admin-sidebar-nav">
         {links.map(link => (
           <Link
             key={link.href}
@@ -28,6 +37,14 @@ export default function AdminSidebar() {
           </Link>
         ))}
       </nav>
+
+      {/* UITLOG KNOP */}
+      <button
+        onClick={handleLogout}
+        className="admin-logout-btn"
+      >
+        Uitloggen
+      </button>
     </aside>
   );
 }

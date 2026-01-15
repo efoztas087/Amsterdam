@@ -12,10 +12,9 @@ type Stats = {
 
 export default function AdminDashboardPage() {
   const supabase = createSupabaseBrowser();
-
   const [loading, setLoading] = useState(true);
   const [stats, setStats] = useState<Record<string, Stats>>({});
-
+  
   async function getStats(table: string): Promise<Stats> {
     const { count: total } = await supabase
       .from(table)
@@ -67,7 +66,6 @@ export default function AdminDashboardPage() {
         {Object.entries(stats).map(([key, value]) => (
           <div key={key} className="dashboard-card">
             <h3>{key}</h3>
-
             <div className="dashboard-numbers">
               <div>
                 <strong>{value.published}</strong>
