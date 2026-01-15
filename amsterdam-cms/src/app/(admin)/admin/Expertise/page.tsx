@@ -29,7 +29,7 @@ export default function ExpertiseAdminPage() {
       if (!error && Array.isArray(data)) setExpertise(data);
     }
     loadExpertise();
-  }, []);
+  }, [supabase]);
 
   async function addExpertise(e: React.FormEvent) {
     e.preventDefault();
