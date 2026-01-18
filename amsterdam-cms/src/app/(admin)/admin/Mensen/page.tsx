@@ -3,7 +3,7 @@ export const dynamic = "force-dynamic";
 import { useEffect, useState } from "react";
 import { createSupabaseBrowser } from "@/lib/supabase";
 
-export const revalidate = 0;
+
 export default function PeopleAdminPage() {
   const supabase = createSupabaseBrowser();
 
