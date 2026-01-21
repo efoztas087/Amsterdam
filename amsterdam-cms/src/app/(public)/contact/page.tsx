@@ -24,7 +24,7 @@ export default function ContactPage() {
     vacancyId: vacancyIdFromUrl ?? "",
   });
 
-  // laad vacatures uit CMS
+
   useEffect(() => {
     fetch("/api/vacancies")
       .then(res => res.json())
@@ -33,7 +33,7 @@ export default function ContactPage() {
       .finally(() => setLoadingVacancies(false));
   }, []);
 
-  // als user via vacaturelink komt, zet select automatisch
+
   useEffect(() => {
     if (vacancyIdFromUrl) {
       setForm(prev => ({ ...prev, vacancyId: vacancyIdFromUrl }));
@@ -46,37 +46,37 @@ export default function ContactPage() {
   }, [form.vacancyId, vacancies]);
 
   async function submit(e: React.FormEvent) {
-  e.preventDefault();
-  setSubmitting(true);
-  setError("");
-  setSuccess(false);
+    e.preventDefault();
+    setSubmitting(true);
+    setError("");
+    setSuccess(false);
 
-  const formData = new FormData();
-  formData.append("name", form.name);
-  formData.append("email", form.email);
-  formData.append("message", form.message);
-  formData.append("vacancyId", form.vacancyId);
-  if (cvFile) formData.append("cv", cvFile);
+    const formData = new FormData();
+    formData.append("name", form.name);
+    formData.append("email", form.email);
+    formData.append("message", form.message);
+    formData.append("vacancyId", form.vacancyId);
+    if (cvFile) formData.append("cv", cvFile);
 
-  try {
-    const res = await fetch("/api/applications", {
-      method: "POST",
-      body: formData,
-    });
+    try {
+      const res = await fetch("/api/applications", {
+        method: "POST",
+        body: formData,
+      });
 
-    if (!res.ok) {
-      throw new Error("Submit failed");
+      if (!res.ok) {
+        throw new Error("Submit failed");
+      }
+
+      setSuccess(true);
+      setForm({ name: "", email: "", message: "", vacancyId: "" });
+      setCvFile(null);
+    } catch {
+      setError("Er ging iets mis bij het versturen. Probeer het later opnieuw.");
+    } finally {
+      setSubmitting(false);
     }
-
-    setSuccess(true);
-    setForm({ name: "", email: "", message: "", vacancyId: "" });
-    setCvFile(null);
-  } catch {
-    setError("Er ging iets mis bij het versturen. Probeer het later opnieuw.");
-  } finally {
-    setSubmitting(false);
   }
-}
 
   return (
     <main className="contact-page page-container">
@@ -85,7 +85,6 @@ export default function ContactPage() {
         Stel je vraag of solliciteer op een vacature. We nemen zo snel mogelijk contact met je op.
       </p>
 
-      {/* Als iemand via vacature komt: extra context tonen */}
       {form.vacancyId && selectedVacancyTitle && (
         <div className="contact-vacancy-banner">
           Je solliciteert op: <strong>{selectedVacancyTitle}</strong>
@@ -131,12 +130,12 @@ export default function ContactPage() {
         </label>
 
         <label>
-              CV uploaden (PDF / Word)
-                  <input
-                    type="file"
-                    accept=".pdf,.doc,.docx"
-                    onChange={e => setCvFile(e.target.files?.[0] ?? null)}
-                   />
+          CV uploaden (PDF / Word)
+          <input
+            type="file"
+            accept=".pdf,.doc,.docx"
+            onChange={e => setCvFile(e.target.files?.[0] ?? null)}
+          />
         </label>
 
         <label>
@@ -149,28 +148,28 @@ export default function ContactPage() {
           />
         </label>
 
-      <button className="contact-submit" type="submit" disabled={submitting}>
-  {submitting ? "Versturen..." : "Verstuur →"}
-</button>
+        <button className="contact-submit" type="submit" disabled={submitting}>
+          {submitting ? "Versturen..." : "Verstuur →"}
+        </button>
       </form>
       {success && (
-  <p className="form-success">
-    ✅ Bedankt voor je sollicitatie! We nemen contact met je op.
-  </p>
-)}
+        <p className="form-success">
+          ✅ Bedankt voor je sollicitatie! We nemen contact met je op.
+        </p>
+      )}
 
-{error && <p className="form-error">❌ {error}</p>}
+      {error && <p className="form-error">❌ {error}</p>}
 
       <div className="contact-map">
-  <h2>Ons kantoor</h2>
+        <h2>Ons kantoor</h2>
 
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2436.423995380947!2d4.9067104!3d52.3627315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNTLCsDIxJzQ1LjgiTiA0wrA1NCcyNC4yIkU!5e0!3m2!1str!2snl!4v1768158722039!5m2!1str!2snl"
-    loading="lazy"
-    referrerPolicy="no-referrer-when-downgrade"
-    allowFullScreen
-  />
-</div>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2436.423995380947!2d4.9067104!3d52.3627315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNTLCsDIxJzQ1LjgiTiA0wrA1NCcyNC4yIkU!5e0!3m2!1str!2snl!4v1768158722039!5m2!1str!2snl"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          allowFullScreen
+        />
+      </div>
     </main>
   );
 }

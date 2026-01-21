@@ -28,25 +28,25 @@ export default function Page() {
       <main className="page-container">
         <h2 className="section-title">Mensen</h2>
         <p className="section-description">
-         Met meer dan 400 medewerkers heeft het Projectmanagementbureau een schat aan kennis en ervaring in huis. Maak kennis met een aantal van onze mensen:
+          Met meer dan 400 medewerkers heeft het Projectmanagementbureau een schat aan kennis en ervaring in huis. Maak kennis met een aantal van onze mensen:
         </p>
         <div className="team-grid">
-  {people.map(person => (
-    <article
-      key={person.id}
-      className="team-card"
-      onClick={() => router.push(`/Mensen/${person.id}`)}
-    >
-      <img
-        className="team-card__img"
-        src={person.image || "/placeholder.jpg"}
-        alt={person.name}
-      />
-      <h3 className="team-card__name">{person.name}</h3>
-      <p className="team-card__role">{person.role}</p>
-    </article>
-  ))}
-</div>
+          {people.map(person => (
+            <article
+              key={person.id}
+              className="team-card"
+              onClick={() => router.push(`/Mensen/${person.id}`)}
+            >
+              <img
+                className="team-card__img"
+                src={person.image || "/placeholder.jpg"}
+                alt={person.name}
+              />
+              <h3 className="team-card__name">{person.name}</h3>
+              <p className="team-card__role">{person.role}</p>
+            </article>
+          ))}
+        </div>
 
         <section className="cta-section">
           <div className="cta-content">

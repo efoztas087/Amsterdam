@@ -123,21 +123,21 @@ export default function ExpertiseAdminPage() {
   }
 
   async function Publishtoggle(id: string, newValue: boolean) {
-  const { error } = await supabase
-    .from("expertise")
-    .update({ published: newValue })
-    .eq("id", id);
+    const { error } = await supabase
+      .from("expertise")
+      .update({ published: newValue })
+      .eq("id", id);
 
-  if (!error) {
-    setExpertise(prev =>
-      prev.map(item =>
-        item.id === id ? { ...item, published: newValue } : item
-      )
-    );
-  } else {
-    console.error("Publish update error:", error);
+    if (!error) {
+      setExpertise(prev =>
+        prev.map(item =>
+          item.id === id ? { ...item, published: newValue } : item
+        )
+      );
+    } else {
+      console.error("Publish update error:", error);
+    }
   }
-}
 
   /* ================= RENDER ================= */
 

@@ -118,44 +118,44 @@ export default function ProjectsAdminPage() {
 
   // 📤 IMAGE UPLOAD
   async function handleProjectImageUpload(e: React.ChangeEvent<HTMLInputElement>, id: string) {
-  const file = e.target.files?.[0];
-  if (!file) return;
+    const file = e.target.files?.[0];
+    if (!file) return;
 
-  setUploading(true);
-  const ext = file.name.split(".").pop();
-  const fileName = `${id}-${Date.now()}.${ext}`;
+    setUploading(true);
+    const ext = file.name.split(".").pop();
+    const fileName = `${id}-${Date.now()}.${ext}`;
 
-  // Upload naar de juiste bucket
-  const { data: uploadData, error: uploadError } = await supabase.storage
-    .from("project-images")
-    .upload(fileName, file);
+    // Upload naar de juiste bucket
+    const { data: uploadData, error: uploadError } = await supabase.storage
+      .from("project-images")
+      .upload(fileName, file);
 
-  if (uploadError) {
-    console.error("Upload error:", uploadError);
+    if (uploadError) {
+      console.error("Upload error:", uploadError);
+      setUploading(false);
+      return;
+    }
+
+    // Public URL ophalen
+    const imageUrl = supabase.storage
+      .from("project-images")
+      .getPublicUrl(fileName).data.publicUrl;
+
+    // Database updaten met nieuwe URL
+    const { error: updateError } = await supabase
+      .from("projects")
+      .update({ image: imageUrl })
+      .eq("id", id);
+
+    if (updateError) {
+      console.error("Database update error:", updateError);
+    } else {
+      // UI lijst updaten
+      setProjects(prev => prev.map(p => (p.id === id ? { ...p, image: imageUrl } : p)));
+    }
+
     setUploading(false);
-    return;
   }
-
-  // Public URL ophalen
-  const imageUrl = supabase.storage
-    .from("project-images")
-    .getPublicUrl(fileName).data.publicUrl;
-
-  // Database updaten met nieuwe URL
-  const { error: updateError } = await supabase
-    .from("projects")
-    .update({ image: imageUrl })
-    .eq("id", id);
-
-  if (updateError) {
-    console.error("Database update error:", updateError);
-  } else {
-    // UI lijst updaten
-    setProjects(prev => prev.map(p => (p.id === id ? { ...p, image: imageUrl } : p)));
-  }
-
-  setUploading(false);
-}
 
   // 🗑 REMOVE IMAGE
   async function removeProjectImage(id: string, imageUrl: string) {

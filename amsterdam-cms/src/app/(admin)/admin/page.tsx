@@ -14,7 +14,7 @@ export default function AdminDashboardPage() {
   const supabase = createSupabaseBrowser();
   const [loading, setLoading] = useState(true);
   const [stats, setStats] = useState<Record<string, Stats>>({});
-  
+
   async function getStats(table: string): Promise<Stats> {
     const { count: total } = await supabase
       .from(table)

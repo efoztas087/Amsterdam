@@ -16,32 +16,29 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
     return <h1>Project niet gevonden</h1>;
   }
 
-return (
-  <main className="project-detail-container">
+  return (
+    <main className="project-detail-container">
+      <section className="project-hero">
+        {project.image && (
+          <img
+            src={project.image}
+            alt={project.title}
+            className="project-hero-image"
+          />
+        )}
 
-    {/* HERO */}
-    <section className="project-hero">
-      {project.image && (
-        <img
-          src={project.image}
-          alt={project.title}
-          className="project-hero-image"
-        />
-      )}
+        <div className="project-hero-overlay">
+          <h1 className="project-hero-title">{project.title}</h1>
 
-      <div className="project-hero-overlay">
-        <h1 className="project-hero-title">{project.title}</h1>
+        </div>
+      </section>
 
-      </div>
-    </section>
+      <section className="project-content page-container">
+        <div className="project-body">
+          {project.description}
+        </div>
+      </section>
 
-    {/* CONTENT */}
-    <section className="project-content page-container">
-      <div className="project-body">
-        {project.description}
-      </div>
-    </section>
-
-  </main>
-);
+    </main>
+  );
 }

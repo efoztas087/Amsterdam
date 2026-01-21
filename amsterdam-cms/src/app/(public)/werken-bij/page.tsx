@@ -23,30 +23,30 @@ export default function WerkenBijPage() {
           className="werken-hero-image"
         />
 
-  <div className="werken-hero-overlay">
-    <h1>Werken bij het Projectmanagementbureau</h1>
-    <p>
-      Werken aan projecten die ertoe doen voor de stad Amsterdam
-    </p>
-  </div>
-</section>
+        <div className="werken-hero-overlay">
+          <h1>Werken bij het Projectmanagementbureau</h1>
+          <p>
+            Werken aan projecten die ertoe doen voor de stad Amsterdam
+          </p>
+        </div>
+      </section>
 
 
-<section className="werken-intro">
-  <h2>Wat bieden wij jou?</h2>
-  <p className="werken-intro-text">
-    Bij het Projectmanagementbureau werk je aan projecten die zichtbaar impact
-    hebben op de stad Amsterdam. Je krijgt ruimte om verantwoordelijkheid te
-    nemen, samen te werken met experts en jezelf te blijven ontwikkelen.
-  </p>
+      <section className="werken-intro">
+        <h2>Wat bieden wij jou?</h2>
+        <p className="werken-intro-text">
+          Bij het Projectmanagementbureau werk je aan projecten die zichtbaar impact
+          hebben op de stad Amsterdam. Je krijgt ruimte om verantwoordelijkheid te
+          nemen, samen te werken met experts en jezelf te blijven ontwikkelen.
+        </p>
 
-  <div className="werken-highlights">
-    <div className="highlight-item">Maatschappelijke impact</div>
-    <div className="highlight-item">Veel autonomie</div>
-    <div className="highlight-item">Sterk team van experts</div>
-    <div className="highlight-item">Ontwikkeling & groei</div>
-  </div>
-</section>
+        <div className="werken-highlights">
+          <div className="highlight-item">Maatschappelijke impact</div>
+          <div className="highlight-item">Veel autonomie</div>
+          <div className="highlight-item">Sterk team van experts</div>
+          <div className="highlight-item">Ontwikkeling & groei</div>
+        </div>
+      </section>
 
       <section className="vacatures-section page-container">
         <h2 className="vacatures-title">Vacatures</h2>
@@ -82,48 +82,48 @@ export default function WerkenBijPage() {
       </section>
 
           {/* HOE WIJ WERKEN */}
-<section className="werken-waarden">
-  <h2>Hoe wij werken</h2>
+      <section className="werken-waarden">
+        <h2>Hoe wij werken</h2>
 
-  <div className="waarden-grid">
-    <div className="waarde-card">
-      <h3>Eigenaarschap</h3>
-      <p>
-        Je bent verantwoordelijk voor je project van initiatief tot realisatie.
-      </p>
+        <div className="waarden-grid">
+          <div className="waarde-card">
+            <h3>Eigenaarschap</h3>
+            <p>
+              Je bent verantwoordelijk voor je project van initiatief tot realisatie.
+            </p>
+          </div>
+
+          <div className="waarde-card">
+            <h3>Samenwerken</h3>
+            <p>
+              We werken multidisciplinair samen binnen en buiten de gemeente.
+            </p>
+          </div>
+
+          <div className="waarde-card">
+            <h3>Maatschappelijke impact</h3>
+            <p>
+              Ons werk heeft directe invloed op de stad en haar inwoners.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div className="werken-hover-cta">
+        <div className="werken-hover-box">
+          <h2>Twijfel je of dit bij je past?</h2>
+          <p>
+            Neem gerust contact met ons op voor een vrijblijvend gesprek.
+            We denken graag met je mee over jouw rol binnen het
+            Projectmanagementbureau.
+          </p>
+
+        <a href="/contact" className="werken-hover-link">
+          Neem contact op →
+        </a>
+      </div>
     </div>
-
-    <div className="waarde-card">
-      <h3>Samenwerken</h3>
-      <p>
-        We werken multidisciplinair samen binnen en buiten de gemeente.
-      </p>
-    </div>
-
-    <div className="waarde-card">
-      <h3>Maatschappelijke impact</h3>
-      <p>
-        Ons werk heeft directe invloed op de stad en haar inwoners.
-      </p>
-    </div>
-  </div>
-</section>
-
-<div className="werken-hover-cta">
-  <div className="werken-hover-box">
-    <h2>Twijfel je of dit bij je past?</h2>
-    <p>
-      Neem gerust contact met ons op voor een vrijblijvend gesprek.
-      We denken graag met je mee over jouw rol binnen het
-      Projectmanagementbureau.
-    </p>
-
-    <a href="/contact" className="werken-hover-link">
-      Neem contact op →
-    </a>
-  </div>
-</div>
-</main>
+    </main>
     
   );
 }

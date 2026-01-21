@@ -6,14 +6,11 @@ import { createSupabaseBrowser } from "@/lib/supabase";
 
 export default function PeopleAdminPage() {
   const supabase = createSupabaseBrowser();
-
   const [people, setPeople] = useState<any[]>([]);
   const [newPerson, setNewPerson] = useState({ name: "", role: "", bio: "" });
   const [newPersonFile, setNewPersonFile] = useState<File | null>(null);
-
   const [editing, setEditing] = useState<any>(null);
   const [editForm, setEditForm] = useState({ name: "", role: "", bio: "", published: false });
-
   const [uploading, setUploading] = useState(false);
 
   // Load people from Supabase DB
@@ -36,44 +33,44 @@ export default function PeopleAdminPage() {
       const token = session.data?.session?.access_token ?? null;
       const headers: any = { 'Content-Type': 'application/json' };
       if (token) headers['Authorization'] = `Bearer ${token}`;
-    const res = await fetch('/api/admin/people', { method: 'POST', credentials: 'include', headers, body: JSON.stringify({ ...newPerson, published: false }) });
+      const res = await fetch('/api/admin/people', { method: 'POST', credentials: 'include', headers, body: JSON.stringify({ ...newPerson, published: false }) });
       const json = await res.json();
       if (!res.ok) { console.error('Insert error:', json); return; }
       const created = json.person;
 
-    if (newPersonFile) {
-      setUploading(true);
-      const ext = newPersonFile.name.split(".").pop();
-      const fileName = `${created.id}-${Date.now()}.${ext}`;
+      if (newPersonFile) {
+        setUploading(true);
+        const ext = newPersonFile.name.split(".").pop();
+        const fileName = `${created.id}-${Date.now()}.${ext}`;
 
-  const { data: uploadData, error: uploadError } = await supabase.storage.from("people-images").upload(fileName, newPersonFile);
+        const { data: uploadData, error: uploadError } = await supabase.storage.from("people-images").upload(fileName, newPersonFile);
 
-      if (!uploadError && uploadData) {
-        const publicUrl = supabase.storage
-          .from("people-images")
-          .getPublicUrl(fileName).data.publicUrl;
+        if (!uploadError && uploadData) {
+          const publicUrl = supabase.storage
+            .from("people-images")
+            .getPublicUrl(fileName).data.publicUrl;
 
-  // update image URL via admin server endpoint
-  await fetch(`/api/admin/people/${created.id}`, { method: 'PATCH', credentials: 'include', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ image: publicUrl }) });
-        created.image = publicUrl;
+          // update image URL via admin server endpoint
+          await fetch(`/api/admin/people/${created.id}`, { method: 'PATCH', credentials: 'include', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ image: publicUrl }) });
+          created.image = publicUrl;
+        }
+        setUploading(false);
       }
-      setUploading(false);
-    }
 
-    setPeople(prev => [...prev, created]);
-    setNewPerson({ name: "", role: "", bio: "" });
-    setNewPersonFile(null);
+      setPeople(prev => [...prev, created]);
+      setNewPerson({ name: "", role: "", bio: "" });
+      setNewPersonFile(null);
     } catch (err) { console.error(err); }
   }
 
   // Delete person
   async function deletePerson(id: string) {
     try {
-  const session = await supabase.auth.getSession();
-  const token = session.data?.session?.access_token ?? null;
-  const headers: any = {};
-  if (token) headers['Authorization'] = `Bearer ${token}`;
-  const res = await fetch(`/api/admin/people/${id}`, { method: 'DELETE', credentials: 'include', headers });
+      const session = await supabase.auth.getSession();
+      const token = session.data?.session?.access_token ?? null;
+      const headers: any = {};
+      if (token) headers['Authorization'] = `Bearer ${token}`;
+      const res = await fetch(`/api/admin/people/${id}`, { method: 'DELETE', credentials: 'include', headers });
       const json = await res.json();
       if (!res.ok) { console.error(json); return; }
       setPeople(prev => prev.filter(p => p.id !== id));
@@ -97,11 +94,11 @@ export default function PeopleAdminPage() {
     if (!editing) return;
 
     try {
-  const session = await supabase.auth.getSession();
-  const token = session.data?.session?.access_token ?? null;
-  const headers: any = { 'Content-Type': 'application/json' };
-  if (token) headers['Authorization'] = `Bearer ${token}`;
-  const res = await fetch(`/api/admin/people/${editing.id}`, { method: 'PATCH', credentials: 'include', headers, body: JSON.stringify(editForm) });
+      const session = await supabase.auth.getSession();
+      const token = session.data?.session?.access_token ?? null;
+      const headers: any = { 'Content-Type': 'application/json' };
+      if (token) headers['Authorization'] = `Bearer ${token}`;
+      const res = await fetch(`/api/admin/people/${editing.id}`, { method: 'PATCH', credentials: 'include', headers, body: JSON.stringify(editForm) });
       const json = await res.json();
       if (!res.ok) { console.error('Update error', json); return; }
       const updated = json.person;
@@ -111,50 +108,50 @@ export default function PeopleAdminPage() {
   }
 
   async function handleImageUpload(e: React.ChangeEvent<HTMLInputElement>, id: string) {
-  const file = e.target.files?.[0];
-  if (!file) return;
+    const file = e.target.files?.[0];
+    if (!file) return;
 
-  setUploading(true);
-  const ext = file.name.split(".").pop();
-  const fileName = `${id}-${Date.now()}.${ext}`;
+    setUploading(true);
+    const ext = file.name.split(".").pop();
+    const fileName = `${id}-${Date.now()}.${ext}`;
 
-  const { data: uploadData, error: uploadError } = await supabase.storage.from("people-images").upload(fileName, file);
+    const { data: uploadData, error: uploadError } = await supabase.storage.from("people-images").upload(fileName, file);
 
-  if (!uploadError && uploadData) {
-    const publicUrl = supabase.storage
-      .from("people-images")
-      .getPublicUrl(fileName).data.publicUrl;
+    if (!uploadError && uploadData) {
+      const publicUrl = supabase.storage
+        .from("people-images")
+        .getPublicUrl(fileName).data.publicUrl;
 
-  // update via server endpoint
-  const session2 = await supabase.auth.getSession();
-  const token2 = session2.data?.session?.access_token ?? null;
-  const headers2: any = { 'Content-Type': 'application/json' };
-  if (token2) headers2['Authorization'] = `Bearer ${token2}`;
-  await fetch(`/api/admin/people/${id}`, { method: 'PATCH', credentials: 'include', headers: headers2, body: JSON.stringify({ image: publicUrl }) });
-  setPeople(prev => prev.map(p => (p.id === id ? { ...p, image: publicUrl } : p)));
-  } else {
-    console.error("Upload error:", uploadError);
+      // update via server endpoint
+      const session2 = await supabase.auth.getSession();
+      const token2 = session2.data?.session?.access_token ?? null;
+      const headers2: any = { 'Content-Type': 'application/json' };
+      if (token2) headers2['Authorization'] = `Bearer ${token2}`;
+      await fetch(`/api/admin/people/${id}`, { method: 'PATCH', credentials: 'include', headers: headers2, body: JSON.stringify({ image: publicUrl }) });
+      setPeople(prev => prev.map(p => (p.id === id ? { ...p, image: publicUrl } : p)));
+    } else {
+      console.error("Upload error:", uploadError);
+    }
+
+    setUploading(false);
   }
 
-  setUploading(false);
-}
-
   async function removeImage(id: string) {
-  const person = people.find(p => p.id === id);
-  if (!person?.image) return;
+    const person = people.find(p => p.id === id);
+    if (!person?.image) return;
 
-  const fileName = person.image.split("/").pop();
+    const fileName = person.image.split("/").pop();
     if (fileName) {
       await supabase.storage.from("people-images").remove([fileName]);
     }
 
-  const session3 = await supabase.auth.getSession();
-  const token3 = session3.data?.session?.access_token ?? null;
-  const headers3: any = { 'Content-Type': 'application/json' };
-  if (token3) headers3['Authorization'] = `Bearer ${token3}`;
-  await fetch(`/api/admin/people/${id}`, { method: 'PATCH', credentials: 'include', headers: headers3, body: JSON.stringify({ image: null }) });
+    const session3 = await supabase.auth.getSession();
+    const token3 = session3.data?.session?.access_token ?? null;
+    const headers3: any = { 'Content-Type': 'application/json' };
+    if (token3) headers3['Authorization'] = `Bearer ${token3}`;
+    await fetch(`/api/admin/people/${id}`, { method: 'PATCH', credentials: 'include', headers: headers3, body: JSON.stringify({ image: null }) });
     setPeople(prev => prev.map(p => (p.id === id ? { ...p, image: null } : p)));
-}
+  }
 
 
 
@@ -239,7 +236,7 @@ export default function PeopleAdminPage() {
         <div className="cms-modal-overlay" onClick={() => setEditing(null)}>
           <div className="cms-edit-container" onClick={e => e.stopPropagation()}>
             <h2>Persoon bewerken</h2>
-            {editing.image && <img src={editing.image} alt={editing.name} className="cms-edit-image-preview"/>}
+            {editing.image && <img src={editing.image} alt={editing.name} className="cms-edit-image-preview" />}
             <label className="cms-btn cms-btn--upload">
               <input
                 type="file"
@@ -259,11 +256,11 @@ export default function PeopleAdminPage() {
               </button>
             )}
             <form onSubmit={saveEdit}>
-              <input placeholder="Naam" value={editForm.name} onChange={e => setEditForm({ ...editForm, name: e.target.value })} required/>
-              <input placeholder="Functie / rol" value={editForm.role} onChange={e => setEditForm({ ...editForm, role: e.target.value })} required/>
-              <textarea placeholder="Bio / beschrijving" value={editForm.bio} onChange={e => setEditForm({ ...editForm, bio: e.target.value })} required/>
+              <input placeholder="Naam" value={editForm.name} onChange={e => setEditForm({ ...editForm, name: e.target.value })} required />
+              <input placeholder="Functie / rol" value={editForm.role} onChange={e => setEditForm({ ...editForm, role: e.target.value })} required />
+              <textarea placeholder="Bio / beschrijving" value={editForm.bio} onChange={e => setEditForm({ ...editForm, bio: e.target.value })} required />
               <label className="publish-toggle">
-                <input type="checkbox" checked={editForm.published} onChange={e => setEditForm({ ...editForm, published: e.target.checked })}/>
+                <input type="checkbox" checked={editForm.published} onChange={e => setEditForm({ ...editForm, published: e.target.checked })} />
                 Publiceren op website
               </label>
               <div className="cms-edit-actions">
@@ -275,7 +272,7 @@ export default function PeopleAdminPage() {
         </div>
       )}
 
-      
+
     </div>
   );
 }

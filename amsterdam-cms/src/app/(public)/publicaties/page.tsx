@@ -126,7 +126,6 @@ export default function PublicatiesPage() {
           Neem contact op →
         </a>
       </section>
-
     </main>
   );
 }

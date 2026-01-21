@@ -22,13 +22,13 @@ export default function ProjectenPage() {
         </div>
         <p className="section-subtext">
           <span>
-          Het Projectmanagementbureau werkt in opdracht van en samen 
-          met andere directies, stadsdelen, wijken en buurten van 
-          de gemeente Amsterdam, andere gemeenten en de regio.
+            Het Projectmanagementbureau werkt in opdracht van en samen
+            met andere directies, stadsdelen, wijken en buurten van
+            de gemeente Amsterdam, andere gemeenten en de regio.
           </span>
           <span>
             Onze werkvelden zijn o.a.: gebiedsontwikkeling, verkeer en vervoer,
-            vastgoed (inclusief maatschappelijk vastgoed) en sociaal domein. We 
+            vastgoed (inclusief maatschappelijk vastgoed) en sociaal domein. We
             lichten hier graag een aantal projecten en programma's toe.
           </span>
         </p>
@@ -47,16 +47,17 @@ export default function ProjectenPage() {
               <h3 className="project-title">{project.title}</h3>
             </div>
           ))}
-<section className="projects-cta">
-  <h2>Meer weten over onze projecten?</h2>
-  <p>
-    Wilt u meer te weten komen over onze projecten?  
-    Neem contact met ons op via onze <strong>Contact</strong> pagina.
-  </p>
-  <button onClick={() => router.push("/contact")} className="cta-button">
-    Neem contact op →
-  </button>
-</section>
+
+          <section className="projects-cta">
+            <h2>Meer weten over onze projecten?</h2>
+            <p>
+              Wilt u meer te weten komen over onze projecten?
+              Neem contact met ons op via onze <strong>Contact</strong> pagina.
+            </p>
+            <button onClick={() => router.push("/contact")} className="cta-button">
+              Neem contact op →
+            </button>
+          </section>
         </div>
       </div>
     </main>
