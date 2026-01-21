@@ -256,3 +256,30 @@
   color: #111;
   white-space: pre-line; /* 👈 belangrijk voor Supabase teksten */
 }
+@media (max-width: 1024px) {
+  .cta-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .cta-illustration__img {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .cta-btn {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .cta-illustration__img {
+    max-width: 360px;
+  }
+
+  .cta-btn {
+    width: 100%;
+    max-width: 280px;
+  }
+}

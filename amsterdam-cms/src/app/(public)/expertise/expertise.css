@@ -362,3 +362,23 @@
   background-color: #c40000;
   transform: translateY(-2px);
 }
+
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .expertise-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobiel */
+@media (max-width: 768px) {
+  .expertise-grid {
+    grid-template-columns: 1fr;
+  }
+}

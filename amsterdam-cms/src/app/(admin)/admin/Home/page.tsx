@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { createSupabaseBrowser } from "@/lib/supabase/browser";
 import "../admin.css";
 
-export const revalidate = 0;
+
 type Card = {
   id: string;
   title: string;
